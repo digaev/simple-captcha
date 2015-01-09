@@ -81,8 +81,8 @@ module SimpleCaptcha
         id = request.params['id']
 
         body = %Q{
-                    $("##{id}").attr('src', '#{url}');
-                    $("#captcha_key").attr('value', '#{key}');
+                    $("img##{id}").attr('src', '#{url}');
+                    $("input[type='hidden']#captcha_key").attr('value', '#{key}');
                   }
         headers = {'Content-Type' => 'text/javascript; charset=utf-8', "Content-Disposition" => "inline; filename='captcha.js'", "Content-Length" => body.length.to_s}
         [status, headers, [body]]
